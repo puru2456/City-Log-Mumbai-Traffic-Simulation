@@ -1,4 +1,4 @@
-# 🚖 CityLog: Mumbai Traffic Simulation & Rain Rush
+#  CityLog: Mumbai Traffic Simulation & Rain Rush
 
 ## Project Description
 CityLog is an interactive, web-based ecosystem designed to model and visualize the unique, highly complex traffic dynamics of Mumbai. Rather than relying on traditional, rigid traffic simulations, CityLog explores **“urban metabolism”**—how weather, infrastructure, localized bottlenecks (like a tea stall), and aggressive driver adaptations create a living, breathing road network.
@@ -9,7 +9,7 @@ In the game, players pilot an **auto-rickshaw through endless, procedurally gene
 
 ---
 
-# ✨ Features
+#  Features
 
 ### Interactive Dashboard
 - Sleek **dark-mode UI**
@@ -60,7 +60,7 @@ Dual-canvas visualization rendering:
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```
 ├── assets/                 # Folder containing screenshots and game assets
@@ -203,7 +203,7 @@ The game dynamically generates sound:
 
 ---
 
-# 💻 Installation Instructions
+#  Installation Instructions
 
 No build tools or package managers are required.
 
@@ -236,7 +236,7 @@ If using VS Code, install the **Live Server extension**.
 
 ---
 
-# 🚀 Deployment Instructions
+#  Deployment Instructions
 
 Since the project contains **only static files**, deployment is very easy.
 
@@ -287,7 +287,7 @@ Simply **drag and drop the project folder**.
 
 ---
 
-# 🎮 Usage
+#  Usage
 
 ### Exploring
 Start at:
@@ -336,7 +336,7 @@ Goal:
 
 ---
 
-# 📸 Screenshots / Demo
+#  Screenshots / Demo
 
 ## 📸 Screenshots
 
@@ -360,7 +360,7 @@ Goal:
 
 ### Urban Complexity
 ![Urban Complexity](assets/Urban%20Complexity.png)
-# 🔮 Future Improvements
+#  Future Improvements
 
 - Global **leaderboard backend** (Node.js / Firebase)
 - Improved **mobile touch controls**
@@ -373,7 +373,7 @@ Goal:
 
 ---
 
-# 🧰 Troubleshooting
+#  Troubleshooting
 
 ### No Sound
 Click anywhere on the screen to activate the **Web Audio API**.
@@ -386,7 +386,14 @@ Play in **landscape mode** for better lane visibility.
 
 ---
 
-# 👨‍💻 Author
+##  Live Demo
+
+You can view the live project here:
+
+https://puru2456.github.io/City-Log-Mumbai-Traffic-Simulation/
+
+---
+#  Author
 
 **[puru2456]**
 
