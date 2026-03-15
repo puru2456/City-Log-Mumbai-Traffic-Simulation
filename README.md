@@ -338,23 +338,7 @@ Goal:
 
 # 📸 Screenshots / Demo
 
-Add images inside the `assets` folder.
-
-Example:
-
-```
-assets/dashboard.png
-assets/simulation.png
-assets/gameplay.png
-```
-
-Then embed them like:
-
-```
-![Dashboard](assets/dashboard.png)
-```
-
----
+Refer the aset file for the screenshots
 
 # 🔮 Future Improvements
 
