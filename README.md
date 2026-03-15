@@ -75,7 +75,7 @@ Dual-canvas visualization rendering:
 
 ---
 
-# 🛠 Technologies Used
+#  Technologies Used
 
 ### Frontend Structure
 - HTML5
@@ -110,7 +110,7 @@ The project is completely standalone.
 
 ---
 
-# ⚙️ How the Code Works
+#  How the Code Works
 
 The application is divided into **static informative interfaces** and **dynamic canvas-driven simulations**.
 
