@@ -388,11 +388,11 @@ Play in **landscape mode** for better lane visibility.
 
 # 👨‍💻 Author
 
-**[Your Name]**
+**[puru2456]**
 
 ---
 
-# 📜 License
+## 📜 License
 
-This project is licensed under the **MIT License**.  
-See the `LICENSE` file for details.
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for more details.
