@@ -340,15 +340,26 @@ Goal:
 
 ## 📸 Screenshots
 
-### Dashboard Interface
-![Dashboard](assets/dashboard.png)
+### Dashboard
+![Dashboard](assets/Dashboard.png)
 
-### Live Traffic Simulation
-![Simulation](assets/simulation.png)
+### Driver Adaptation
+![Driver Adaptation](assets/Driver%20Adaptation.png)
 
-### Mumbai Rain Rush Gameplay
-![Gameplay](assets/gameplay.png)
+### Ecosystem
+![Ecosystem](assets/Ecosystem.png)
 
+### Game Module
+![Game Module](assets/Game%20Module.png)
+
+### Live Simulation
+![Live Simulation](assets/Live%20Simulation.png)
+
+### Living Streets
+![Living Streets](assets/Living%20Streets.png)
+
+### Urban Complexity
+![Urban Complexity](assets/Urban%20Complexity.png)
 # 🔮 Future Improvements
 
 - Global **leaderboard backend** (Node.js / Firebase)
