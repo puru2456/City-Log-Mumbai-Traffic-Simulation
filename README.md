@@ -338,7 +338,16 @@ Goal:
 
 # 📸 Screenshots / Demo
 
-Refer the aset file for the screenshots
+## 📸 Screenshots
+
+### Dashboard Interface
+![Dashboard](assets/dashboard.png)
+
+### Live Traffic Simulation
+![Simulation](assets/simulation.png)
+
+### Mumbai Rain Rush Gameplay
+![Gameplay](assets/gameplay.png)
 
 # 🔮 Future Improvements
 
