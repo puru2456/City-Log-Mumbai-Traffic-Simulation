@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01. Living Streets — Tech Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #FFD700; --bg: #0d0d0d; }
+        body { background: var(--bg); color: #e0e0e0; font-family: 'JetBrains Mono', monospace; padding: 3rem; line-height: 1.6; }
+        .back { color: var(--accent); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px; }
+        h1 { font-size: 2.5rem; color: var(--accent); margin-top: 2rem; border-bottom: 2px solid #222; padding-bottom: 10px; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.8rem; }
+        .data-table th, .data-table td { border: 1px solid #333; padding: 10px; text-align: left; }
+        .data-table th { background: #1a1a1a; color: var(--accent); }
+        .highlight { color: var(--accent); }
+        .visual-bar { height: 4px; background: #333; margin: 10px 0; position: relative; }
+        .progress { height: 100%; background: var(--accent); width: 65%; }
+    </style>
+</head>
+<body>
+    <a href="ecosystem.html" class="back">< RETURN_TO_CORE</a>
+    <h1>Module: Procedural Tarmac Synthesis</h1>
+    
+    <div class="content-grid">
+        <div class="info-text">
+            <h3>System Overview</h3>
+            <p>Our algorithm doesn't just draw roads; it "grows" them. By feeding <span class="highlight">BMC (Brihanmumbai Municipal Corporation)</span> land-use records into a noise-based procedural generator, we simulate authentic urban wear-and-tear.</p>
+            
+            <h3 style="margin-top: 2rem;">Logic Parameters</h3>
+            <ul>
+                <li><span class="highlight">Density Map:</span> Influences the "cracking" frequency of the road textures.</li>
+                <li><span class="highlight">Flow Constraints:</span> Dynamically shifts lane widths based on peak-hour bottleneck data.</li>
+                <li><span class="highlight">Weathering:</span> Simulates the impact of the Mumbai monsoon on tarmac degradation rates.</li>
+            </ul>
+        </div>
+
+        <div class="stats-panel">
+            <h3>Live Telemetry</h3>
+            <table class="data-table">
+                <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
+                <tr><td>Texture Seed</td><td>#MUM-400013</td><td>ACTIVE</td></tr>
+                <tr><td>Noise Variance</td><td>0.0042</td><td>STABLE</td></tr>
+                <tr><td>Erosion Simulation</td><td>On (Monsoon Mode)</td><td>RUNNING</td></tr>
+            </table>
+            <div style="margin-top: 2rem;">
+                <p>GPU Processing Load:</p>
+                <div class="visual-bar"><div class="progress" style="width: 78%;"></div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

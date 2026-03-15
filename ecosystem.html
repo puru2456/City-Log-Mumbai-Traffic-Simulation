@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityLog — Ecosystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0d0d0d; --accent: #FFD700; --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.1); --text: #e0e0e0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        nav { position: fixed; width: 100%; z-index: 1000; background: rgba(13, 13, 13, 0.9); backdrop-filter: blur(10px); padding: 1.5rem 4rem; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
+        nav a { color: var(--text); text-decoration: none; font-size: 0.9rem; margin-left: 2rem; }
+        .logo { font-weight: 800; letter-spacing: -1px; }
+        .hero { height: 40vh; display: flex; align-items: center; padding: 0 4rem; background: radial-gradient(circle at 80% 20%, #1a1a10 0%, #0d0d0d 100%); }
+        .hero h1 { font-size: 3.5rem; line-height: 1; }
+        .ecosystem-grid { padding: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .cell { background: var(--glass); border: 1px solid var(--border); padding: 3rem; cursor: pointer; transition: all 0.4s ease; }
+        .cell:hover { background: rgba(255, 215, 0, 0.05); border-color: var(--accent); transform: translateY(-10px); }
+        .cell h2 { font-family: 'JetBrains Mono'; color: var(--accent); margin-bottom: 1rem; }
+        .cell-data { font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #666; margin-top: 2rem; }
+        footer { padding: 4rem; text-align: center; color: #444; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">CITYLOG / INFRA</div>
+        <div>
+            <a href="index.html">DASHBOARD</a>
+            <a href="ecosystem.html" style="color:var(--accent)">ECOSYSTEM</a>
+            <a href="simulation.html">LIVE_SIM</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div><h1>Urban<br>Metabolism</h1></div>
+    </section>
+    <div class="ecosystem-grid">
+        <div class="cell" onclick="window.location.href='living-streets.html'">
+            <h2>01. Living Streets</h2>
+            <p>Our algorithm generates non-repeating tarmac textures and lane configurations.</p>
+            <div class="cell-data">LOG: ROAD_GEN_v4.2 // STATUS: STABLE</div>
+        </div>
+        <div class="cell" onclick="window.location.href='urban-complexity.html'">
+            <h2>02. Urban Complexity</h2>
+            <p>Modeling chaos: how a single tea stall creates a ripple effect in traffic.</p>
+            <div class="cell-data">LOG: CHAOS_COEFF: 0.82 // SENSORS: ACTIVE</div>
+        </div>
+        <div class="cell" onclick="window.location.href='driver-adaptation.html'">
+            <h2>03. Driver Adaptation</h2>
+            <p>Machine learning agents trained on aggressive maneuvers and predictive braking.</p>
+            <div class="cell-data">LOG: AGENT_NEURAL_MAP // VERSION: 9.0</div>
+        </div>
+    </div>
+    <footer>&copy; 2026 CityLog Analytics — Mumbai Division</footer>
+</body>
+</html>

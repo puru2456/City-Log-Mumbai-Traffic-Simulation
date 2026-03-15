@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03. Driver Adaptation — Tech Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #00FF41; --bg: #0d0d0d; }
+        body { background: var(--bg); color: #e0e0e0; font-family: 'JetBrains Mono', monospace; padding: 3rem; line-height: 1.6; }
+        .back { color: var(--accent); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px; }
+        h1 { font-size: 2.5rem; color: var(--accent); margin-top: 2rem; border-bottom: 2px solid #222; padding-bottom: 10px; }
+        .neural-map { background: #050505; border: 1px dashed var(--accent); padding: 2rem; margin: 2rem 0; position: relative; }
+        .logic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .data-tag { color: var(--accent); font-weight: bold; }
+        .node-list { font-size: 0.85rem; color: #888; list-style: none; }
+        .node-list li::before { content: "> "; color: var(--accent); }
+        .alert-box { border-left: 4px solid var(--accent); padding-left: 1rem; margin-top: 2rem; background: rgba(0, 255, 65, 0.05); padding: 1rem; }
+    </style>
+</head>
+<body>
+    <a href="ecosystem.html" class="back">< RETURN_TO_CORE</a>
+    <h1>Module: Neural Driver Adaptation</h1>
+
+    <div class="neural-map">
+        <h3>Agent Profile: Auto-Rickshaw v9.0</h3>
+        <p>This module simulates <span class="data-tag">Non-Euclidean Navigation</span>. Unlike standard AI drivers that follow lane centring, these agents prioritize "momentum-preservation" and "gap-entry" logic.</p>
+        
+        <div class="alert-box">
+            <strong>THE 15CM RULE:</strong> Agents are trained to recognize any gap wider than 15cm as a "viable lane segment." Predictive braking is only engaged if a collision is calculated at >92% probability.
+        </div>
+    </div>
+
+    <div class="logic-grid">
+        <div>
+            <h3>Decision Matrix</h3>
+            <ul class="node-list">
+                <li>Lane Splitting: <span class="data-tag">ENABLED</span></li>
+                <li>Diagonal Merging: <span class="data-tag">PRIORITY_HIGH</span></li>
+                <li>Pedestrian Buffer: <span class="data-tag">MINIMAL (20cm)</span></li>
+                <li>Aggression Coefficient: <span class="data-tag">0.98</span></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Reinforcement Learning Gains</h3>
+            <p style="font-size: 0.9rem;">By analyzing thousands of hours of dashcam footage from suburban Mumbai, the agents have learned to predict the "intent" of other drivers before they even signal. This reduces simulation stall-time by <span class="data-tag">24%</span> compared to standard Western traffic models.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 3rem; text-align: center; color: #333;">
+        [ AGENT_NEURAL_MAP_VERSION_9.0 // TRAINING_SET: MUMBAI_METRO_AREA ]
+    </div>
+</body>
+</html>

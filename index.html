@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityLog — Mumbai Traffic Simulation</title>
+    <style>
+        /* CSS VARIABLES & RESET */
+        :root {
+            --bg-dark: #121212;
+            --accent-yellow: #FFD700;
+            --text-light: #F5F5F5;
+            --text-muted: #A0A0A0;
+            --road-grey: #2A2A2A;
+            --road-line: #444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden; /* Keep it focused on the dashboard */
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span { color: var(--accent-yellow); }
+        .menu { display: flex; gap: 2rem; }
+        .menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .menu a:hover { color: var(--accent-yellow); }
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--bg-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* MAIN SPLIT LAYOUT */
+        main {
+            display: flex;
+            height: calc(100vh - 130px); /* Account for nav and ticker */
+        }
+        
+        /* LEFT SIDE: INFO */
+        .info-panel {
+            flex: 1;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        p.description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+        .features {
+            list-style: none;
+        }
+        .features li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features li::before {
+            content: "•";
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+        }
+
+        /* RIGHT SIDE: LIVE SIMULATION PREVIEW */
+        .sim-panel {
+            flex: 1;
+            background-color: var(--road-grey);
+            position: relative;
+            overflow: hidden;
+            border-left: 1px solid #333;
+        }
+        
+        /* ROAD LANES */
+        .road-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            background: repeating-linear-gradient(
+                to bottom,
+                var(--road-line) 0,
+                var(--road-line) 40px,
+                transparent 40px,
+                transparent 80px
+            );
+            background-size: 4px 100%;
+            background-position: center;
+        }
+
+        /* VEHICLES */
+        .vehicle {
+            position: absolute;
+            width: 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: left 0.3s ease;
+        }
+        .rickshaw { background-color: var(--accent-yellow); height: 45px; border-top: 8px solid #333; }
+        .car { background-color: var(--text-light); height: 60px; }
+        .cab { background-color: #222; height: 60px; border-top: 10px solid var(--accent-yellow); }
+        
+        /* Headlights */
+        .vehicle::before, .vehicle::after {
+            content: '';
+            position: absolute;
+            width: 6px; height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.4);
+            bottom: -3px; /* Headlights point down */
+        }
+        .vehicle::before { left: 2px; }
+        .vehicle::after { right: 2px; }
+
+        /* DATA RIBBON (TICKER) */
+        .ticker-wrap {
+            width: 100%;
+            background-color: #0a0a0a;
+            height: 40px;
+            border-top: 1px solid #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker 25s linear infinite;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .ticker span {
+            margin-right: 3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🛺 City<span>Log</span></div>
+        <div class="menu">
+            <a href="#" style="color: var(--accent-yellow);">Home</a>
+            <a href="ecosystem.html">Ecosystem</a>
+            <a href="simulation.html">Simulation</a>
+        </div>
+        
+    </nav>
+
+    <main>
+        <div class="info-panel">
+            <h1>CityLog — Mumbai<br>Traffic Simulation</h1>
+            <p class="description">
+                Cities are ecosystems where movement, weather, people, and infrastructure interact constantly. Traditional simulations repeat patterns, but this system models a <strong>living urban traffic environment where behavior evolves continuously.</strong>
+            </p>
+            <ul class="features">
+                <li>Dynamic traffic density</li>
+                <li>Realistic urban obstacles</li>
+                <li>Weather interference</li>
+                <li>Endless evolving roads</li>
+                <li>Real-time simulation system</li>
+            </ul>
+        </div>
+
+        <div class="sim-panel" id="sim-panel">
+            <div class="road-container"></div>
+            </div>
+    </main>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>☕ Chai Spawner Active: Sector 4</span>
+            <span>🪙 Coin Dropped: WEH Highway</span>
+            <span>🚦 Congestion Coefficient: 0.89 (High)</span>
+            <span>🌧️ Weather State: Approaching Monsoon</span>
+            <span>🛺 Rickshaw Count: 4,201</span>
+            <span>🚧 Barricade Spawned: Andheri East</span>
+            <span>☕ Chai Spawner Active: Sector 4</span>
+            <span>🪙 Coin Dropped: WEH Highway</span>
+        </div>
+    </div>
+
+    <script>
+        // SIMPLE TRAFFIC SIMULATION SCRIPT
+        const simPanel = document.getElementById('sim-panel');
+        const lanes = [10, 30, 50, 70, 90]; // Percentage positions for lanes
+        const vehicleTypes = ['rickshaw', 'rickshaw', 'car', 'cab', 'rickshaw']; 
+
+        function spawnVehicle() {
+            const vehicle = document.createElement('div');
+            
+            // Randomize vehicle type
+            const type = vehicleTypes[Math.floor(Math.random() * vehicleTypes.length)];
+            vehicle.classList.add('vehicle', type);
+            
+            // Randomize lane
+            const lane = lanes[Math.floor(Math.random() * lanes.length)];
+            vehicle.style.left = `calc(${lane}% - 15px)`;
+            
+            // Start at the top of the screen
+            vehicle.style.top = '-100px';
+            simPanel.appendChild(vehicle);
+
+            // Randomize speed
+            const speed = Math.random() * 2 + 2; // px per frame
+            let position = -100;
+
+            function animate() {
+                position += speed;
+                vehicle.style.top = position + 'px';
+
+                // Remove vehicle when it goes off screen
+                if (position > window.innerHeight) {
+                    vehicle.remove();
+                } else {
+                    requestAnimationFrame(animate);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Spawn a new vehicle every few milliseconds to create dense traffic
+        setInterval(spawnVehicle, 350);
+
+        // Initial burst of traffic
+        for(let i=0; i<15; i++) {
+            setTimeout(spawnVehicle, i * 100);
+        }
+    </script>
+
+</body>
+</html>
