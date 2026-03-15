@@ -338,7 +338,7 @@ Goal:
 
 #  Screenshots / Demo
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Dashboard
 ![Dashboard](assets/Dashboard.png)
@@ -399,7 +399,7 @@ https://puru2456.github.io/City-Log-Mumbai-Traffic-Simulation/
 
 ---
 
-## 📜 License
+##  License
 
 This project is licensed under the MIT License.  
 See the [LICENSE](LICENSE) file for more details.
